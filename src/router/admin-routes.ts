@@ -5,7 +5,7 @@ const route = '/admin';
 export const adminRoutes: Array<RouteRecordRaw> = [
   {
     path: `${route}`,
-    name: 'Admin Index View',
+    name: 'Панель администратора',
     component: () => import('@/views/Admin/IndexView.vue'),
   },
 ];

@@ -6,7 +6,7 @@ import Home from '../views/Home.vue';
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
+    name: 'Главная',
     component: Home,
   },
   ...adminRoutes,
