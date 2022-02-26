@@ -1,30 +1,35 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+// i18n
 import { useI18n } from 'vue-i18n';
+// Store
 import useDesignStore from '@/store/design-calculator_store';
-import AdminFormComponent from '@/components/AdminForm.vue';
 
 export default defineComponent({
-  name: 'Admin_IndexView',
-  components: { AdminFormComponent },
+  name: 'AdminHeader',
   setup() {
-    const { t } = useI18n();
     const store = useDesignStore();
+    const { t } = useI18n();
 
     return {
-      t,
       store,
+      t,
     };
   },
 });
 </script>
 
 <template>
-  <article class="wrapper">
-    <AdminFormComponent :on-click="store.set" />
-  </article>
+  <header class="wrapper">
+    <h1>{{ t('views.admin.title') }}</h1>
+  </header>
 </template>
 
-<style lang="scss" scoped>
-.wrapper {}
+<style scoped lang="scss">
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
 </style>

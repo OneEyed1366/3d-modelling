@@ -1,17 +1,25 @@
 {
-  "admin_view-header-title": "Настройка калькулятора интерьерной визуализации",
-  "index_view-body-title": "Калькулятор интерьерной визуализации",
-  "index_view-body-options_quality": "Качество",
-  "index_view-body-options_furniture": "Наполненность помещения",
-  "index_view-body-options_is-schema": "Есть план? (*.dwg, ARCHICAD и пр.)",
-  "index_view-body-options_is-models": "Все 3д модели подобраны? (+{percents}% от проекта)",
-  "index_view-body-options_is-important": "Срочно? (+{percents}% от проекта)",
   "views": {
+    "admin": {
+      "title": "Настройка калькулятора интерьерной визуализации"
+    },
     "login": {
       "title": "Страница Авторизации"
     },
     "register": {
       "title": "Страница Регистрации"
+    },
+    "index": {
+      "title": "Калькулятор интерьерной визуализации",
+      "body": {
+        "options": {
+          "quality": "Качество",
+          "furniture": "Наполненность помещения",
+          "is-schema": "Есть план? (*.dwg, ARCHICAD и пр.)",
+          "is-models": "Все 3д модели подобраны? (+{percents}% от проекта)",
+          "is-urgently": "Срочно? (+{percents}% от проекта)"
+        }
+      }
     }
   },
   "components": {
@@ -19,6 +27,14 @@
       "email": "Email",
       "password": "Пароль",
       "submit": "Отправить"
+    },
+    "admin-form": {
+      "currency": "Выберите валюту",
+      "min-price": "Введите минимальную стоимость за м²",
+      "max-price": "Введите максимальную стоимость за м²",
+      "models-search-fee": "Стоимость подбора и согласования моделей, в процентах от стоимости проекта",
+      "urgently-fee": "Увеличение стоимости за срочность, в процентах от стоимости проекта",
+      "submit": "Изменить расценки"
     }
   }
 }

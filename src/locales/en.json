@@ -1,14 +1,22 @@
 {
-  "admin_view-header-title": "Setting up an interior Visualization Calculator",
-  "index_view-body-title": "Interior Visualization Calculator",
-  "index_view-body-options_quality": "Quality",
-  "index_view-body-options_furniture": "Fullness of the room",
-  "index_view-body-options_is-schema": "Do you have a plan *.dwg (ARCHICAD, etc.)?",
-  "index_view-body-options_is-models": "Are all 3D models selected? (+{percent}% of the project)",
-  "index_view-body-options_is-important": "Is is urgently? (+{percent}% of the project)",
   "views": {
+    "admin": {
+      "title": "Setting up an interior Visualization Calculator"
+    },
     "login": {
       "title": "Log in page"
+    },
+    "index": {
+      "title": "Interior Visualization Calculator",
+      "body": {
+        "options": {
+          "quality": "Quality",
+          "furniture": "Fullness of the room",
+          "is-schema": "Do you have a plan *.dwg (ARCHICAD, etc.)?",
+          "is-models": "Are all 3D models selected? (+{percent}% of the project)",
+          "is-urgently": "Is is urgently? (+{percent}% of the project)"
+        }
+      }
     },
     "register": {
       "title": "Register Page"
@@ -19,6 +27,14 @@
       "email": "Email",
       "password": "Password",
       "submit": "Send"
+    },
+    "admin-form": {
+      "currency": "Select currency",
+      "min-price": "Enter the minimum cost per m²",
+      "max-price": "Enter the maximum cost per m²",
+      "models-search-fee": "The cost of selecting and approving models, as a percentage of the project cost",
+      "urgently-fee": "Increase in the cost for urgency, as a percentage of the cost of the project",
+      "submit": "Change prices"
     }
   }
 }

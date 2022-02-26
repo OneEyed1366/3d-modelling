@@ -1,20 +1,21 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 // Components
-import DesignCalculatorHeader from '@/components/Header.vue';
+import NonAdminHeader from '@/components/NonAdminHeader.vue';
 
 export default defineComponent({
   name: 'DesignCalculatorIndexView',
   components: {
-    DesignCalculatorHeader,
+    NonAdminHeader,
   },
 });
 </script>
 
 <template>
-  <main class="wrapper">
-    <DesignCalculatorHeader />
-  </main>
+  <article class="wrapper">
+    <NonAdminHeader />
+
+  </article>
 </template>
 
 <style scoped lang="scss">

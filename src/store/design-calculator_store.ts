@@ -1,14 +1,17 @@
 import { defineStore } from 'pinia';
 
-export type designCalculatorType = {
+export interface adminDesignCalculatorType {
   currency: 'RUB' | 'USD',
   minPrice: number,
-  currPrice: number,
   maxPrice: number,
   modelsSearchFee: number,
-  importanceFee: number,
+  urgentlyFee: number,
+}
+
+export interface designCalculatorType extends adminDesignCalculatorType {
+  currPrice: number,
   isImportant: boolean,
-};
+}
 
 const useDesignStore = defineStore('design-calculator', {
   state: (): designCalculatorType => ({
@@ -18,30 +21,20 @@ const useDesignStore = defineStore('design-calculator', {
     currPrice: 0,
     maxPrice: 0,
     modelsSearchFee: 0,
-    importanceFee: 0,
+    urgentlyFee: 0,
   }),
   getters: {
     getPrice: (state) => (
       state.isImportant
-        ? state.currPrice * state.importanceFee
+        ? state.currPrice * state.urgentlyFee
         : state.currPrice
     ),
   },
   actions: {
-    setMinPrice(price: number) {
-      this.minPrice = price;
-    },
-    setMaxPrice(price: number) {
-      this.maxPrice = price;
-    },
-    setCurrPrice(price: number) {
-      this.currPrice = price;
-    },
-    setImportancePrice(percent: number) {
-      this.importanceFee = percent;
-    },
-    setIsImportant(value: boolean) {
-      this.isImportant = value;
+    async set(
+      { minPrice, maxPrice, urgentlyFee, modelsSearchFee, currency }: adminDesignCalculatorType,
+    ) {
+
     },
   },
 });

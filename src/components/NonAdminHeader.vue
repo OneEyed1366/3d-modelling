@@ -6,7 +6,7 @@ import { useI18n } from 'vue-i18n';
 import useDesignStore from '@/store/design-calculator_store';
 
 export default defineComponent({
-  name: 'DesignCalculatorHeader',
+  name: 'NonAdminHeader',
   setup() {
     const store = useDesignStore();
     const { t } = useI18n();
@@ -21,11 +21,8 @@ export default defineComponent({
 
 <template>
   <header class="wrapper">
-    <h1>{{ t('admin_view-header-title') }}</h1>
+    <h1>{{ t('views.index.title') }}</h1>
   </header>
-  <article>
-
-  </article>
 </template>
 
 <style scoped lang="scss">
