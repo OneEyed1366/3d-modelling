@@ -1,0 +1,24 @@
+{
+  "admin_view-header-title": "Setting up an interior Visualization Calculator",
+  "index_view-body-title": "Interior Visualization Calculator",
+  "index_view-body-options_quality": "Quality",
+  "index_view-body-options_furniture": "Fullness of the room",
+  "index_view-body-options_is-schema": "Do you have a plan *.dwg (ARCHICAD, etc.)?",
+  "index_view-body-options_is-models": "Are all 3D models selected? (+{percent}% of the project)",
+  "index_view-body-options_is-important": "Is is urgently? (+{percent}% of the project)",
+  "views": {
+    "login": {
+      "title": "Log in page"
+    },
+    "register": {
+      "title": "Register Page"
+    }
+  },
+  "components": {
+    "user-form": {
+      "email": "Email",
+      "password": "Password",
+      "submit": "Send"
+    }
+  }
+}

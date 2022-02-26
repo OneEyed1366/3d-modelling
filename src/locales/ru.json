@@ -1,3 +1,24 @@
 {
-  "message": "hello i18n !!"
+  "admin_view-header-title": "Настройка калькулятора интерьерной визуализации",
+  "index_view-body-title": "Калькулятор интерьерной визуализации",
+  "index_view-body-options_quality": "Качество",
+  "index_view-body-options_furniture": "Наполненность помещения",
+  "index_view-body-options_is-schema": "Есть план? (*.dwg, ARCHICAD и пр.)",
+  "index_view-body-options_is-models": "Все 3д модели подобраны? (+{percents}% от проекта)",
+  "index_view-body-options_is-important": "Срочно? (+{percents}% от проекта)",
+  "views": {
+    "login": {
+      "title": "Страница Авторизации"
+    },
+    "register": {
+      "title": "Страница Регистрации"
+    }
+  },
+  "components": {
+    "user-form": {
+      "email": "Email",
+      "password": "Пароль",
+      "submit": "Отправить"
+    }
+  }
 }
