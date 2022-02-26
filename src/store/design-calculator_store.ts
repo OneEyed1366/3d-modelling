@@ -1,4 +1,7 @@
 import { defineStore } from 'pinia';
+import {
+  getDatabase, ref, set, onValue,
+} from 'firebase/database';
 
 export interface adminDesignCalculatorType {
   currency: 'RUB' | 'USD',
@@ -10,12 +13,12 @@ export interface adminDesignCalculatorType {
 
 export interface designCalculatorType extends adminDesignCalculatorType {
   currPrice: number,
-  isImportant: boolean,
+  isUrgently: boolean,
 }
 
 const useDesignStore = defineStore('design-calculator', {
   state: (): designCalculatorType => ({
-    isImportant: false,
+    isUrgently: false,
     currency: 'RUB',
     minPrice: 0,
     currPrice: 0,
@@ -24,17 +27,68 @@ const useDesignStore = defineStore('design-calculator', {
     urgentlyFee: 0,
   }),
   getters: {
-    getPrice: (state) => (
-      state.isImportant
-        ? state.currPrice * state.urgentlyFee
-        : state.currPrice
-    ),
+    getCurrentPrice: (state): number => {
+      if (state.isUrgently) {
+        return ((state.currPrice * state.urgentlyFee) * 100);
+      }
+
+      return state.currPrice;
+    },
   },
   actions: {
-    async set(
-      { minPrice, maxPrice, urgentlyFee, modelsSearchFee, currency }: adminDesignCalculatorType,
-    ) {
+    setCurrPrice(newPrice: number): boolean {
+      try {
+        this.currPrice = newPrice;
 
+        return true;
+      } catch (error) {
+        console.error(`Error in setting up new price -> ${error}`);
+
+        return false;
+      }
+    },
+    async get(): Promise<boolean> {
+      return new Promise((resolve) => {
+        const db = ref(getDatabase(), '/');
+        try {
+          onValue(db, (({ val }) => {
+            const data: adminDesignCalculatorType = val();
+
+            Object.assign(this, data);
+
+            resolve(true);
+          }));
+        } catch (getFromDbError) {
+          console.error(`Error in Get from db -> ${getFromDbError}`);
+
+          resolve(false);
+        }
+      });
+    },
+    async set({
+      minPrice,
+      maxPrice,
+      urgentlyFee,
+      modelsSearchFee,
+      currency,
+    }: adminDesignCalculatorType): Promise<boolean> {
+      return new Promise((resolve) => {
+        const db = getDatabase();
+
+        set(ref(db, '/'), {
+          minPrice,
+          maxPrice,
+          urgentlyFee,
+          modelsSearchFee,
+          currency,
+        })
+          .then(() => resolve(true))
+          .catch((updateDbError) => {
+            console.error(`Updating DB Error -> ${updateDbError}`);
+
+            resolve(false);
+          });
+      });
     },
   },
 });

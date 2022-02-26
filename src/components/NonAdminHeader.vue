@@ -3,12 +3,17 @@ import { defineComponent } from 'vue';
 // i18n
 import { useI18n } from 'vue-i18n';
 // Store
-import useDesignStore from '@/store/design-calculator_store';
+import useUsersStore, { usersStoreType } from '@/store/users_store';
 
 export default defineComponent({
   name: 'NonAdminHeader',
+  methods: {
+    onClick(): void {
+      this.$router.push('/users/login');
+    },
+  },
   setup() {
-    const store = useDesignStore();
+    const store: usersStoreType = useUsersStore();
     const { t } = useI18n();
 
     return {
@@ -28,8 +33,16 @@ export default defineComponent({
 <style scoped lang="scss">
 .wrapper {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  gap: 1em;
+
+  .login-btn {
+    order: 0;
+    padding: 1em 3em;
+    background-color: #42b983;
+    border-radius: 5px;
+  }
 }
 </style>

@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n';
 import { routes } from '@/router';
 import { RouteRecordRaw } from 'vue-router';
+import useUsersStore, { usersStoreType } from '@/store/users_store';
 
 type dataType = {
   routes: RouteRecordRaw[]
@@ -15,16 +16,18 @@ export default {
   },
   setup(): any {
     const { t } = useI18n();
+    const store: usersStoreType = useUsersStore();
 
     return {
       t,
+      store,
     };
   },
 };
 </script>
 
 <template>
-  <nav id="nav">
+  <nav id="nav" v-if="store.getIsAuthenticated">
     <router-link v-for="route in routes" :key="route.name" :to="route.path">
       {{ route.name }}
     </router-link>

@@ -16,6 +16,9 @@ const useUsersStore = defineStore('users', {
     email: undefined,
     password: undefined,
   }),
+  getters: {
+    getIsAuthenticated: (state): boolean => state.isAuthenticated,
+  },
   actions: {
     async register({ email, password }: { email: string, password: string }) {
       return new Promise((resolve) => {

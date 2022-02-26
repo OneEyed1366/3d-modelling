@@ -16,13 +16,10 @@ export default defineComponent({
       const { onClick } = this.props;
       const { email, password } = this;
 
-      if (await onClick({ email, password })) {
-        await this.$router.push('/');
-
-        return true;
-      }
-
-      return false;
+      return !!(await onClick({
+        email,
+        password,
+      }));
     },
   },
   data() {

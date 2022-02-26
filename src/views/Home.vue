@@ -4,7 +4,7 @@ import { defineComponent } from 'vue';
 import NonAdminHeader from '@/components/NonAdminHeader.vue';
 
 export default defineComponent({
-  name: 'DesignCalculatorIndexView',
+  name: 'IndexView',
   components: {
     NonAdminHeader,
   },
@@ -14,7 +14,6 @@ export default defineComponent({
 <template>
   <article class="wrapper">
     <NonAdminHeader />
-
   </article>
 </template>
 

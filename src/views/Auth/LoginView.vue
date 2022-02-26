@@ -3,16 +3,19 @@ import { defineComponent } from 'vue';
 // Store
 import useUsersStore from '@/store/users_store';
 import UserFormComponent from '@/components/UserForm.vue';
+import { useI18n } from 'vue-i18n';
 
 export default defineComponent({
-  name: 'Auth_LoginView',
+  name: 'AuthLoginView',
   components: {
     UserFormComponent,
   },
   setup() {
+    const { t } = useI18n();
     const store = useUsersStore();
 
     return {
+      t,
       store,
     };
   },

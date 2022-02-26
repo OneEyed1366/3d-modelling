@@ -5,7 +5,7 @@ import useUsersStore from '@/store/users_store';
 import UserFormComponent from '@/components/UserForm.vue';
 
 export default defineComponent({
-  name: 'Auth_RegisterView',
+  name: 'AuthRegisterView',
   components: {
     UserFormComponent,
   },
