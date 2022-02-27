@@ -1,4 +1,4 @@
-# 3d-modelling
+# 3D-Modelling
 
 ## What is it?
 It is small, but useful 3D-Modelling calculator
