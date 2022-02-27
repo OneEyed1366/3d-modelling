@@ -87,7 +87,7 @@ export default defineComponent({
         <label for="calculator-form-is-models">
           <span>
             {{
-              t('components.calculator-form.is-models', { percents: `${store.modelsSearchFee}%` })
+              t('components.calculator-form.is-models', { percents: `${store.modelsSearchFee}` })
             }}
           </span>
           :
@@ -100,7 +100,7 @@ export default defineComponent({
         <label for="calculator-form-is-urgently">
           <span>
             {{
-              t('components.calculator-form.is-urgently', { percents: `${store.urgentlyFee}%` })
+              t('components.calculator-form.is-urgently', { percents: `${store.urgentlyFee}` })
             }}
           </span>
           :
