@@ -1,34 +1,22 @@
 # 3d-modelling
 
-## Project setup
-```
-yarn install
-```
+## What is it?
+It is small, but useful 3D-Modelling calculator
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Features
+### TypeScript
+No comments, I LOVE TS!
 
-### Compiles and minifies for production
-```
-yarn build
-```
+### Internationalization
+[Vue I18N module](https://vue-i18n.intlify.dev/guide/), currently there are 2 languages: Ru and En
 
-### Run your unit tests
-```
-yarn test:unit
-```
+### State Management
+[Pinia](https://pinia.vuejs.org/) and [Firebase](https://firebase.google.com/), as a BackEnd (for Realtime DB)
 
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
+### Auth
+[Firebase](https://firebase.google.com/)
 
-### Lints and fixes files
-```
-yarn lint
-```
+### Routing
+[Default Vue3 Router](https://router.vuejs.org/)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
