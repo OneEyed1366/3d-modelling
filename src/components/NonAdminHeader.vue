@@ -32,18 +32,26 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss">
+@import '@/styles/variables';
+
 .wrapper {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   gap: 1em;
+  padding: 1em;
 
   .login-btn {
     order: 0;
     padding: 0.5em 3em;
     background-color: #42b983;
     border-radius: 5px;
+  }
+
+  @media (max-width: $smallWidth) {
+    flex-direction: column;
+    gap: 0.2em;
   }
 }
 </style>

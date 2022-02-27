@@ -73,6 +73,8 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss">
+@import '@/styles/variables';
+
 .wrapper {
   display: flex;
   flex: 1 0 100%;
@@ -93,6 +95,12 @@ export default defineComponent({
       width: 30%;
       height: 40vh;
       background: no-repeat center / cover;
+    }
+    @media (max-width: $smallWidth) {
+      .examples {
+        height: 70vh;
+        width: 98%;
+      }
     }
   }
 }
