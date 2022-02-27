@@ -7,22 +7,24 @@
       "title": "Log in page"
     },
     "index": {
-      "title": "Interior Visualization Calculator",
-      "body": {
-        "options": {
-          "quality": "Quality",
-          "furniture": "Fullness of the room",
-          "is-schema": "Do you have a plan *.dwg (ARCHICAD, etc.)?",
-          "is-models": "Are all 3D models selected? (+{percent}% of the project)",
-          "is-urgently": "Is is urgently? (+{percent}% of the project)"
-        }
-      }
+      "title": "Interior Visualization Calculator"
     },
     "register": {
       "title": "Register Page"
     }
   },
   "components": {
+    "calculator-form": {
+      "quality": "Quality",
+      "furniture": "Fullness of the room",
+      "is-schema": "Do you have a plan *.dwg (ARCHICAD, etc.)?",
+      "is-models": "Are all 3D models selected? (+{percent}% of the project)",
+      "is-urgently": "Is is urgently? (+{percent}% of the project)",
+      "cost": "Total amount"
+    },
+    "demo-images": {
+      "title": "Examples"
+    },
     "user-form": {
       "email": "Email",
       "password": "Password",
@@ -31,9 +33,11 @@
     "admin-form": {
       "currency": "Select currency",
       "min-price": "Enter the minimum cost per m²",
-      "max-price": "Enter the maximum cost per m²",
-      "models-search-fee": "The cost of selecting and approving models, as a percentage of the project cost",
-      "urgently-fee": "Increase in the cost for urgency, as a percentage of the cost of the project",
+      "quality-fee": "Increase in the cost of rendering quality, as a percentage of the project cost",
+      "furniture-fee": "Increase in the cost for the fullness of the room, as a % of the cost of the project",
+      "models-search-fee": "The cost of selecting and approving models, as a % of the project cost",
+      "urgently-fee": "Increase in the cost for urgency, as a % of the cost of the project",
+      "schema-fee": "Increase in the cost of creating a drawing, as a % of the project cost",
       "submit": "Change prices"
     }
   }

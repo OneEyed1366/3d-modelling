@@ -3,6 +3,8 @@ import { useI18n } from 'vue-i18n';
 import { routes } from '@/router';
 import { RouteRecordRaw } from 'vue-router';
 import useUsersStore, { usersStoreType } from '@/store/users_store';
+import { onMounted } from 'vue';
+import useDesignStore from '@/store/design-calculator_store';
 
 type dataType = {
   routes: RouteRecordRaw[]
@@ -16,18 +18,23 @@ export default {
   },
   setup(): any {
     const { t } = useI18n();
-    const store: usersStoreType = useUsersStore();
+    const usersStore: usersStoreType = useUsersStore();
+    const designStore = useDesignStore();
+
+    onMounted(() => {
+      designStore.get();
+    });
 
     return {
       t,
-      store,
+      usersStore,
     };
   },
 };
 </script>
 
 <template>
-  <nav id="nav" v-if="store.getIsAuthenticated">
+  <nav id="nav" v-if="usersStore.getIsAuthenticated">
     <router-link v-for="route in routes" :key="route.name" :to="route.path">
       {{ route.name }}
     </router-link>

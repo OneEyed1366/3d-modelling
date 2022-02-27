@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 // Localization
 import { useI18n } from 'vue-i18n';
-import { adminDesignCalculatorType, designCalculatorType } from '@/store/design-calculator_store';
+import useDesignStore from '@/store/design-calculator_store';
 
 export default defineComponent({
   name: 'AdminFormComponent',
@@ -12,39 +12,38 @@ export default defineComponent({
       required: true,
     },
   },
-  // methods: {
-  //   async submit(): Promise<boolean> {
-  //     const { onClick } = this.props;
-  //
-  //     if (await onClick({ email, password })) {
-  //       await this.$router.push('/');
-  //
-  //       return true;
-  //     }
-  //
-  //     return false;
-  //   },
-  // },
-  data(): adminDesignCalculatorType {
-    return {
-      minPrice: 0,
-      maxPrice: 0,
-      currency: 'RUB',
-      modelsSearchFee: 0,
-      urgentlyFee: 0,
-    };
+  methods: {
+    async submit(): Promise<boolean> {
+      const { onClick } = this.props;
+      const {
+        minPrice,
+        currency,
+        modelsSearchFee,
+        qualityFee,
+        urgentlyFee,
+        furnitureFee,
+        schemaFee,
+      } = this.store;
+
+      return !!(await onClick({
+        minPrice,
+        currency,
+        modelsSearchFee,
+        qualityFee,
+        urgentlyFee,
+        furnitureFee,
+        schemaFee,
+      }));
+    },
   },
   setup(props) {
     const { t } = useI18n();
-    const currencyTypes: string[] = [
-      'RUB',
-      'USD',
-    ];
+    const store = useDesignStore();
 
     return {
       props,
       t,
-      currencyTypes,
+      store,
     };
   },
 });
@@ -54,33 +53,58 @@ export default defineComponent({
   <article class="wrapper">
     <fieldset>
       <form>
-        <label for="admin-form-currency">
-          <span>{{ t('components.admin-form.currency') }}</span>
-          :
-          <select v-model="currency" id="admin-form-currency">
-            <option v-for="currencyType in currencyTypes" :key="currencyType" :value="currencyType">
-              {{ currencyType }}
-            </option>
-          </select>
-        </label>
         <label for="admin-form-min_price">
           <span>{{ t('components.admin-form.min-price') }}</span>
           :
-          <input required type="number" id="admin-form-min_price" v-model.number="minPrice">
+          <input
+            required type="number"
+            min="0"
+            id="admin-form-min_price"
+            v-model.number="store.minPrice"
+          >
         </label>
-        <label for="admin-form-max_price">
-          <span>{{ t('components.admin-form.max-price') }}</span>
+        <label for="admin-form-schema_fee">
+          <span>{{ t('components.admin-form.schema-fee') }}</span>
           :
-          <input required type="number" id="admin-form-max_price" v-model.number="maxPrice">
+          <input
+            required
+            min="0"
+            type="number"
+            id="admin-form-schema_fee"
+            v-model.number="store.schemaFee"
+          >
+        </label>
+        <label for="admin-form-quality_fee">
+          <span>{{ t('components.admin-form.quality-fee') }}</span>
+          :
+          <input
+            required
+            min="0"
+            type="number"
+            id="admin-form-quality_fee"
+            v-model.number="store.qualityFee"
+          >
+        </label>
+        <label for="admin-form-furniture_fee">
+          <span>{{ t('components.admin-form.furniture-fee') }}</span>
+          :
+          <input
+            required
+            min="0"
+            type="number"
+            id="admin-form-furniture_fee"
+            v-model.number="store.furnitureFee"
+          >
         </label>
         <label for="admin-form-models_search_fee">
           <span>{{ t('components.admin-form.models-search-fee') }}</span>
           :
           <input
             required
+            min="0"
             type="number"
             id="admin-form-models_search_fee"
-            v-model.number="modelsSearchFee"
+            v-model.number="store.modelsSearchFee"
           >
         </label>
         <label for="admin-form-urgently_fee">
@@ -88,9 +112,10 @@ export default defineComponent({
           :
           <input
             required
+            min="0"
             type="number"
             id="admin-form-urgently_fee"
-            v-model.number="urgentlyFee"
+            v-model.number="store.urgentlyFee"
           >
         </label>
       </form>

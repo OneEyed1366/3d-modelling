@@ -1,12 +1,24 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineAsyncComponent, defineComponent } from 'vue';
 // Components
 import NonAdminHeader from '@/components/NonAdminHeader.vue';
+import LoaderComponent from '@/components/Loader.vue';
+// Async componnets
+const CalculatorFormComponent = defineAsyncComponent({
+  loader: () => import('@/components/CalculatorForm.vue'),
+  loadingComponent: LoaderComponent,
+  delay: 0,
+});
+const DemoImagesComponent = defineAsyncComponent({
+  loader: () => import('@/components/DemoImages.vue'),
+});
 
 export default defineComponent({
   name: 'IndexView',
   components: {
+    CalculatorFormComponent,
     NonAdminHeader,
+    DemoImagesComponent,
   },
 });
 </script>
@@ -14,6 +26,8 @@ export default defineComponent({
 <template>
   <article class="wrapper">
     <NonAdminHeader />
+    <CalculatorFormComponent />
+    <DemoImagesComponent />
   </article>
 </template>
 
