@@ -81,26 +81,30 @@ export default defineComponent({
           <input
             type="checkbox"
             id="calculator-form-is-schema"
-            v-model="store.isSchema"
+            :checked="!store.isSchema"
+            :value="!store.isSchema"
+            @change="(el) => store.setIsSchema(el.target.value === 'true')"
           >
         </label>
         <label for="calculator-form-is-models">
           <span>
             {{
-              t('components.calculator-form.is-models', { percents: `${store.modelsSearchFee}` })
+              t('components.calculator-form.is-models', { percents: store.modelsSearchFee })
             }}
           </span>
           :
           <input
             type="checkbox"
             id="calculator-form-is-models"
-            v-model="store.isSearchModels"
+            :checked="!store.isSearchModels"
+            :value="!store.isSearchModels"
+            @change="(el) => store.setIsSearchModels(el.target.value === 'true')"
           >
         </label>
         <label for="calculator-form-is-urgently">
           <span>
             {{
-              t('components.calculator-form.is-urgently', { percents: `${store.urgentlyFee}` })
+              t('components.calculator-form.is-urgently', { percents: store.urgentlyFee })
             }}
           </span>
           :

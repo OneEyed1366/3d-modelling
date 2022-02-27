@@ -80,6 +80,12 @@ const useDesignStore = defineStore('design-calculator', {
     },
   },
   actions: {
+    setIsSearchModels(value: boolean) {
+      this.isSearchModels = value;
+    },
+    setIsSchema(value: boolean) {
+      this.isSchema = value;
+    },
     async exchange({ data, from, to }: { data: number, from: string, to: string }): Promise<void> {
       const id = 'a3f4b0e0-97b2-11ec-a3b9-fd045c3b6c30';
 
