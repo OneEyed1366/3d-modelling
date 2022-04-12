@@ -3,6 +3,7 @@ import { defineAsyncComponent, defineComponent } from 'vue';
 // Components
 import NonAdminHeader from '@/components/NonAdminHeader.vue';
 import LoaderComponent from '@/components/Loader.vue';
+import LangChangeComponent from '@/components/LangChangeComponent.vue';
 // Async componnets
 const CalculatorFormComponent = defineAsyncComponent({
   loader: () => import('@/components/CalculatorForm.vue'),
@@ -16,6 +17,7 @@ const DemoImagesComponent = defineAsyncComponent({
 export default defineComponent({
   name: 'IndexView',
   components: {
+    LangChangeComponent,
     CalculatorFormComponent,
     NonAdminHeader,
     DemoImagesComponent,
@@ -25,6 +27,7 @@ export default defineComponent({
 
 <template>
   <article class="wrapper">
+    <LangChangeComponent />
     <NonAdminHeader />
     <CalculatorFormComponent />
     <DemoImagesComponent />
